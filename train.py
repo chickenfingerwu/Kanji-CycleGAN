@@ -53,10 +53,10 @@ if opt.cuda:
     #netD_B.cuda()
     netD_B.to(torch.device('cuda'))
 
-    netG_A2B = nn.DataParallel(netG_A2B, device_ids=[0, 1, 2])
-    netG_B2A = nn.DataParallel(netG_B2A, device_ids=[0, 1, 2])
-    netD_A = nn.DataParallel(netD_A, device_ids=[0, 1, 2])
-    netD_B = nn.DataParallel(netD_B, device_ids=[0, 1, 2])
+    netG_A2B = nn.DataParallel(netG_A2B, device_ids=[0])
+    netG_B2A = nn.DataParallel(netG_B2A, device_ids=[0])
+    netD_A = nn.DataParallel(netD_A, device_ids=[0])
+    netD_B = nn.DataParallel(netD_B, device_ids=[0])
 
 netG_A2B.apply(weights_init_normal)
 netG_B2A.apply(weights_init_normal)
